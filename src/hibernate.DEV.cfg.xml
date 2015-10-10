@@ -7,9 +7,9 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 
         <!-- Database connection details -->
-        <property name="hibernate.connection.url">jdbc:mysql://54.86.21.29:3306/meetme</property>
-        <property name="hibernate.connection.username">meetme</property>
-        <property name="hibernate.connection.password">Shad14ow!</property>
+        <property name="hibernate.connection.url">jdbc:mysql://</property>
+        <property name="hibernate.connection.username">user</property>
+        <property name="hibernate.connection.password">pass</property>
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>

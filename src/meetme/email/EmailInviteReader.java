@@ -3,7 +3,6 @@ package meetme.email;
 import meetme.dao.MeetingDao;
 import meetme.meeting.Meeting;
 import meetme.meeting.MeetingInvitesManager;
-import meetme.meeting.Person;
 
 import javax.mail.*;
 import javax.mail.search.FlagTerm;
@@ -19,22 +18,27 @@ import java.util.Properties;
 public class EmailInviteReader extends Thread {
 
     private boolean isOnline;
+    private String account;
+    private String password;
+
+    public EmailInviteReader(String userName, String password) {
+        this.account = userName;
+        this.password = password;
+    }
 
     public void getEmail() {
         Properties props = new Properties();
         props.put("mail.store.protocol", "imaps");
 
-        final String userName = "remember2meetme@gmail.com";
-        final String password = "Shadow!!";
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(userName, password);
+                return new PasswordAuthentication(account, password);
             }
         });
         Store store = null;
         try {
             store = session.getStore();
-            store.connect("imap.gmail.com", "remember2meetme@gmail.com", "Shadow!!");
+            store.connect("imap.gmail.com", account, password);
             Folder inboxFolder = store.getFolder("INBOX");
             inboxFolder.open(Folder.READ_WRITE);
             Flags seen = new Flags(Flags.Flag.SEEN);
@@ -172,8 +176,4 @@ public class EmailInviteReader extends Thread {
         this.isOnline = false;
         super.interrupt();
     }
-
-    //    public void sendWelcomeEmail(Person organizer) {
-//
-//    }
 }

@@ -7,7 +7,7 @@ import meetme.dao.Dao;
  */
 public class MainEmail {
     public static void main(String[] args) {
-        EmailInviteReader email = new EmailInviteReader();
+        EmailInviteReader email = new EmailInviteReader("", "");
         email.getEmail();
 
         Dao.closeSessionFactory();

@@ -1,1 +1,3 @@
 out
+src/hibernate.cfg.xml
+web/WEB-INF/web.xml

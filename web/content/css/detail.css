@@ -1,0 +1,37 @@
+.details {
+    background: #ecf0f1;
+}
+
+h4.meeting-title {
+    margin-bottom: 3px;
+}
+
+h1.meeting-title{
+    margin-bottom: 0px;
+}
+
+.meeting-section {
+    padding-top: 20px;
+}
+
+.meeting-agenda-empty {
+    color: #7f8c8d;
+}
+
+ul.meeting-participants {
+    list-style: none;
+    padding: 0;
+}
+
+a.meeting-participant {
+     color: #2c3e50;
+}
+
+a.meeting-participant:hover {
+    color: #bdc3c7;
+}
+
+img.meeting-participant-picture {
+    height: 30px;
+    width: 30px;
+}

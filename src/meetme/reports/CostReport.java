@@ -1,14 +1,14 @@
 package meetme.reports;
 
-import meetme.meeting.IMeeting;
+import meetme.meeting.Meeting;
 
 /**
  * Created by bryukhaa on 9/7/15.
  */
 public class CostReport {
-    private IMeeting meeting;
+    private Meeting meeting;
 
-    public CostReport(IMeeting meeting) {
+    public CostReport(Meeting meeting) {
         this.meeting = meeting;
     }
 
@@ -21,8 +21,9 @@ public class CostReport {
      */
     public double calculateMeetingCost(double personCostPerHour) {
         double totalPeopleCostPerHour = this.meeting.getAttendees().size() * personCostPerHour;
-        double totalCost = ((meeting.getEndDateTime().getTime() - meeting.getStartDateTime().getTime()) / 3600000.0) * totalPeopleCostPerHour;
+//        double totalCost = ((meeting.getEndDateTime().getTime() - meeting.getStartDateTime().getTime()) / 3600000.0) * totalPeopleCostPerHour;
 
-        return totalCost;
+//        return totalCost;
+        return 1;
     }
 }

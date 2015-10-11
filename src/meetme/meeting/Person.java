@@ -4,6 +4,9 @@ import com.sun.javaws.exceptions.InvalidArgumentException;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -84,6 +87,21 @@ public class Person {
         jsonMap.put("id", this.participantId);
         jsonMap.put("name", this.name);
         jsonMap.put("email", this.email);
+
+        // Generate a gravatar URL for this person
+        MessageDigest m = null;
+        try {
+            m = MessageDigest.getInstance("MD5");
+            m.reset();
+            m.update(this.email.getBytes());
+            byte[] digest = m.digest();
+            BigInteger bigInt = new BigInteger(1,digest);
+            String hashtext = bigInt.toString(16);
+            jsonMap.put("avatar", "http://www.gravatar.com/avatar/" + hashtext);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
         return jsonMap;
     }
 

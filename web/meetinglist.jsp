@@ -19,7 +19,7 @@
   <div class="col-md-12 meeting-list-full">
     <ul data-bind="foreach: meetingList, visible: meetingList.length > 0">
       <li>
-        <a data-bind="click: $parent.loadMeeting.bind($data, meetingId), click: showMeetingDetailsPane.bind(window, meetingId)">
+        <a data-bind="click: $parent.loadMeeting.bind($data, meetingId), click: $menuApp.showMeetingDetailsPane.bind(window, meetingId)">
           <h4 class="meeting-title" data-bind="text: title"></h4>
           <div><i class="fa fa-calendar"></i> <small data-bind="text: timestamp"></small></div>
           <div><i class="fa fa-user-secret"></i> <small data-bind="text: organizer.name"></small></div>

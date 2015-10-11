@@ -45,10 +45,10 @@
   <div class="col-md-4">
     <div class="meeting-section">
       <label>PARTICIPANTS</label>
-      <ul class="meeting-participants">
+      <ul class="meeting-participants" data-bind="foreach: attendees">
         <li>
-          <a class="meeting-participant">
-            <img class="meeting-participant-picture img-circle" src="http://wehearttours.com/Content/public/alex.jpg"/> Alex Bryukhanova
+          <a class="meeting-participant" data-bind="click: 'mailto:' + email">
+            <img class="meeting-participant-picture img-circle" data-bind="attr: {src: avatar}" /> <span data-bind="text: name"></span>
           </a>
         </li>
       </ul>

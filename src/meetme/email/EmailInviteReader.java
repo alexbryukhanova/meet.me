@@ -58,6 +58,12 @@ public class EmailInviteReader extends Thread {
             e.printStackTrace();
         } catch (MessagingException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                store.close();
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
         }
     }
 

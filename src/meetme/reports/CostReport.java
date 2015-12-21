@@ -1,15 +1,21 @@
 package meetme.reports;
 
-import meetme.meeting.Meeting;
+import java.util.Calendar;
 
 /**
  * Created by bryukhaa on 9/7/15.
  */
 public class CostReport {
-    private Meeting meeting;
+    private final long attendeeCount;
+    private final long meetingId;
+    private final Calendar start;
+    private final Calendar end;
 
-    public CostReport(Meeting meeting) {
-        this.meeting = meeting;
+    public CostReport(long meetingId, Calendar start, Calendar end, long attendeeCount) {
+        this.meetingId = meetingId;
+        this.start = start;
+        this.end = end;
+        this.attendeeCount = attendeeCount;
     }
 
     /**
@@ -20,10 +26,13 @@ public class CostReport {
      * total cost of given meeting
      */
     public double calculateMeetingCost(double personCostPerHour) {
-        double totalPeopleCostPerHour = this.meeting.getAttendees().size() * personCostPerHour;
-//        double totalCost = ((meeting.getEndDateTime().getTime() - meeting.getStartDateTime().getTime()) / 3600000.0) * totalPeopleCostPerHour;
+        double totalPeopleCostPerHour = this.attendeeCount * personCostPerHour;
+        double totalCost = ((end.getTime().getTime() - start.getTime().getTime()) / 3600000.0) * totalPeopleCostPerHour;
 
-//        return totalCost;
-        return 1;
+        return totalCost;
+    }
+
+    public long getAttendeeCount() {
+        return attendeeCount;
     }
 }

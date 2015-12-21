@@ -51,6 +51,16 @@
         <url-pattern>/Meeting</url-pattern>
     </servlet-mapping>
 
+    <!--REPORTS-->
+    <servlet>
+        <servlet-name>Reports</servlet-name>
+        <servlet-class>meetme.web.reports.ReportsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Reports</servlet-name>
+        <url-pattern>/Reports</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>home.jsp</welcome-file>
         <!--<welcome-file>index.jsp</welcome-file>-->

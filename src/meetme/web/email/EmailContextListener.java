@@ -1,5 +1,6 @@
 package meetme.web.email;
 
+import meetme.dao.Dao;
 import meetme.email.EmailInviteReader;
 
 import javax.naming.Context;
@@ -37,5 +38,8 @@ public class EmailContextListener implements ServletContextListener {
             emailInviteReader.interrupt();
         } catch (Exception ex) {
         }
+
+        // Clean up the db session
+        Dao.closeSessionFactory();
     }
 }

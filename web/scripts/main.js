@@ -3,12 +3,26 @@
  */
 
 var MenuApp = function() {
+    // Default empty bindings
+    var meetingsVM = ko.observable({ meetingList: []});
+    ko.applyBindings(meetingsVM, $(".meeting-list-full")[0]);
+    var reportsVM = ko.observable({ totalCost: '', agendaless: '' });
+    ko.applyBindings(reportsVM, $(".reports")[0]);
+
+    // Load data on menu change
     $("#menu-calendar").on("click", function () {
         // Load list of meetings
         $.get("/MeetingsList")
             .done(function (meetingsData) {
-                var meetingsVM = new MeetingList(meetingsData);
-                ko.applyBindings(meetingsVM, $(".meeting-list-full")[0]);
+                meetingsVM(new MeetingList(meetingsData));
+            });
+    });
+    $("#menu-reports").on("click", function () {
+        // Load reports
+        $.get("/Reports")
+            .done(function (reportsData) {
+                var reports = new Reports(reportsData);
+                reportsVM(reports);
             });
     });
 
@@ -31,7 +45,7 @@ var MenuApp = function() {
                 var meetingDetailsVM = new Meeting(meetingDetails);
                 currentMeeting(meetingDetailsVM);
 
-                $(".main").addClass("min");
+                $(".meeting-list").addClass("min");
                 $(".details").show();
             });
     };

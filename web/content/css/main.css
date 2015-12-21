@@ -1,16 +1,8 @@
 .main {
     background: #95a5a6;
     color: #2c3e50;
-}
-
-.main.min {
-    float: left;
-    width: 25%;
-    -webkit-transition: width 0.5s ease-out;
-    -moz-transition: width 0.5s ease-out;
-    -ms-transition: width 0.5s ease-out;
-    -o-transition: width 0.5s ease-out;
-    transition: width 0.5s ease-out;
+    overflow: scroll;
+    height: 100%;
 }
 
 .main a {
@@ -27,14 +19,15 @@
     float: right;
 }
 
-.meeting-list {
-    position: relative;
-    min-height: 1px;
-    min-width: 25%;
-    padding-right: 15px;
-    padding-left: 15px;
+.meeting-list.min {
+    float: left;
+    -webkit-transition: width 0.5s ease-out;
+    -moz-transition: width 0.5s ease-out;
+    -ms-transition: width 0.5s ease-out;
+    -o-transition: width 0.5s ease-out;
+    transition: width 0.5s ease-out;
 }
 
-.meeting-list h1 {
-    font-variant: small-caps;
+div.report {
+    margin-bottom: 40px;
 }
